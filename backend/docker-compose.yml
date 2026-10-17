@@ -1,3 +1,5 @@
+name: wildcats-dining
+
 services:
 
   db:
