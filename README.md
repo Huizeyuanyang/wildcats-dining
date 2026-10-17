@@ -2,6 +2,14 @@
 
 A full-stack food ordering web app inspired by DoorDash, built for Northwestern students. Users can browse restaurants, add dishes to a cart, check out, and view their order history.
 
+## Demo
+
+https://github.com/user-attachments/assets/a1a43aab-c576-4d84-bef5-7e2a9fae14ad
+
+
+
+
+
 ## Screenshots
 
 | Home | Menu |
