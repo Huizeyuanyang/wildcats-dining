@@ -1,0 +1,174 @@
+.content {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #3a2164;
+  color: white;
+}
+
+.restaurant-card {
+  background-color: #3a2164;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  color: white;
+  text-align: center;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.restaurant-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.food-card {
+  background-color: #3a2164;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  width: 180px;
+  text-align: center;
+}
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.food-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.food-price {
+  font-weight: bold;
+}
+
+.food-description {
+  font-size: 12px;
+  color: #ab830c;
+}
+
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.login-card {
+  width: 360px;
+  padding: 32px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-subtitle {
+  color: #888;
+  margin-bottom: 24px;
+}
+
+/* 表单：竖着排，每个之间留空 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #3a2164;
+}
+
+.login-button {
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  background-color: #3a2164;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #52308c;
+}
+
+.login-error {
+  color: #d32f2f;
+  margin-top: 12px;
+}
+
+.link-button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: #3a2164;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header-button {
+  padding: 8px 20px;
+  font-size: 15px;
+  color: white;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  background-color: white;
+  color: #3a2164;
+}
+
+.header-user {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

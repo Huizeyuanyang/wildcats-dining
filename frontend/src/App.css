@@ -1,0 +1,651 @@
+/* Logo 字体：从 Google Fonts 加载 Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap");
+
+/* =========================================================
+   0. 颜色变量：整个网站的颜色都在这里改
+   ========================================================= */
+:root {
+  --purple: #3a2164;        /* 主色：顶栏、按钮、卡片 */
+  --purple-light: #52308c;  /* 鼠标移上去时的颜色 */
+  --gold: #ab830c;          /* 菜品描述文字 */
+  --gray-text: #888;        /* 次要文字 */
+  --gray-border: #eee;      /* 分隔线 */
+  --red: #d32f2f;           /* 错误提示 */
+}
+
+
+/* =========================================================
+   1. 页面整体布局
+   ========================================================= */
+body {
+  background-color: #f6f5fa;
+  color: #222;
+}
+
+.content {
+  padding: 24px;
+}
+
+.content h2 {
+  color: var(--purple);
+}
+
+
+/* =========================================================
+   2. 顶栏 header
+   ========================================================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: var(--purple);
+  color: white;
+}
+
+/* 标题可以点击，回到首页 */
+.header h1 {
+  margin: 14px 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* 右边的一组按钮 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 15px;
+  color: white;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  background-color: white;
+  color: var(--purple);
+}
+
+.header-user {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   3. 餐厅列表
+   ========================================================= */
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.restaurant-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.restaurant-image {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  padding: 12px 16px 16px;
+}
+
+.restaurant-name {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #222;
+}
+
+.restaurant-detail {
+  margin: 2px 0;
+  font-size: 13px;
+  color: var(--gray-text);
+}
+
+
+/* =========================================================
+   4. 菜单（菜品卡片）
+   ========================================================= */
+.back-button {
+  padding: 0;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--purple);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: var(--purple-light);
+  text-decoration: underline;
+}
+
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.food-image {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.food-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px 14px 14px;
+}
+
+.food-name {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: #222;
+}
+
+.food-description {
+  flex: 1;
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: var(--gray-text);
+}
+
+.food-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-price {
+  margin: 0;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+.add-button {
+  padding: 6px 14px;
+  font-size: 13px;
+  color: white;
+  background-color: var(--purple);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: var(--purple-light);
+}
+
+/* =========================================================
+   5. 登录页 / 注册页（两个页面共用这些样式）
+   ========================================================= */
+/* 整页：让卡片在中间 */
+.login-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+/* 白色卡片 */
+.login-card {
+  width: 360px;
+  padding: 32px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-subtitle {
+  color: var(--gray-text);
+  margin-bottom: 24px;
+}
+
+/* 表单：竖着排，每个之间留空 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.login-button {
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--purple);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: var(--purple-light);
+}
+
+.login-error {
+  color: var(--red);
+  margin-top: 12px;
+}
+
+/* 看起来像链接的按钮（Sign up / Back） */
+.link-button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: var(--purple);
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* 个人信息页的圆形头像 */
+.profile-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--purple);
+  border-radius: 50%;
+}
+
+.profile-logout {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* 个人信息页：卡片和订单列表上下排列 */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-top: 40px;
+}
+
+.orders-section {
+  width: 100%;
+  max-width: 560px;
+}
+
+.orders-empty {
+  color: var(--gray-text);
+}
+
+.order-card {
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+.order-date {
+  font-size: 13px;
+  font-weight: normal;
+  color: var(--gray-text);
+}
+
+.order-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-border);
+  font-weight: bold;
+}
+
+/* =========================================================
+   6. 购物车侧边栏
+   ========================================================= */
+/* 半透明遮罩：盖住整个页面，点它关闭购物车 */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+/* 顶部：标题和关闭按钮左右分开 */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.cart-header h2 {
+  margin: 0;
+  color: var(--purple);
+}
+
+.cart-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--gray-text);
+  cursor: pointer;
+}
+
+.cart-close:hover {
+  color: var(--purple);
+}
+
+.cart-empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--gray-text);
+}
+
+/* 中间 + 底部：占满剩下的高度 */
+.cart-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 菜品列表：太多时可以滚动 */
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 24px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.cart-item img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-info {
+  flex: 1;
+  text-align: left;
+}
+
+.cart-item-info p {
+  margin: 0;
+}
+
+.cart-item-name {
+  font-weight: bold;
+}
+
+.cart-item-qty {
+  font-size: 14px;
+  color: var(--gray-text);
+}
+
+.cart-item-price {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* 购物车按餐厅分组 */
+.cart-group {
+  margin-bottom: 8px;
+}
+
+.cart-group-title {
+  margin: 12px 0 4px;
+  font-size: 14px;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 底部：总价和结算按钮 */
+.cart-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--gray-border);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--purple);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: var(--purple-light);
+}
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.qty-control button {
+  width: 26px;
+  height: 26px;
+  color: var(--purple);
+  background-color: white;
+  border: 1.5px solid var(--purple);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.qty-control button:hover {
+  color: white;
+  background-color: var(--purple);
+}
+
+
+
+
+
+/* 底部弹出的提示 */
+.toast {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  color: white;
+  background-color: var(--purple);
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+
+/* 悬浮的购物车按钮：固定在页面右上角（顶栏下面） */
+.floating-cart {
+  position: fixed;
+  top: 100px;
+  right: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--purple);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 5;
+}
+
+.floating-cart:hover {
+  background-color: var(--purple-light);
+}
+
+
+/* =========================================================
+   7. 确认弹窗
+   ========================================================= */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 30;
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 31;
+}
+
+.dialog h3 {
+  margin: 0 0 8px;
+  color: var(--purple);
+}
+
+.dialog p {
+  margin: 0 0 20px;
+  color: var(--gray-text);
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.dialog-buttons button {
+  flex: 1;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dialog-cancel {
+  color: var(--purple);
+  background-color: white;
+  border: 1.5px solid var(--purple);
+}
+
+.dialog-confirm {
+  color: white;
+  background-color: var(--red);
+  border: none;
+}
