@@ -35,7 +35,8 @@ https://github.com/user-attachments/assets/a1a43aab-c576-4d84-bef5-7e2a9fae14ad
 |---|---|
 | Frontend | React 19, JavaScript, CSS, react-icons |
 | Backend | Java 21, Spring Boot 4, Spring Security, Spring Data JDBC, Caffeine cache |
-| Database | PostgreSQL 15 (Docker) |
+| Database | PostgreSQL 15 (AWS RDS in the cloud deployment; Docker for local development) |
+| Deployment | Docker, AWS ECR, AWS App Runner, AWS RDS |
 
 ## Project Structure
 
@@ -60,6 +61,31 @@ WildcatsDining/
 | POST | `/cart/decrease` | Decrease an item's quantity | Yes |
 | POST | `/cart/checkout` | Place an order from the cart | Yes |
 | GET | `/orders` | Current user's order history | Yes |
+
+## Deployment (AWS)
+
+The first version of this app was deployed on AWS with the following architecture:
+
+```
+Browser ──► AWS App Runner (Spring Boot container, serves the React build + REST API)
+                    │
+                    └──► AWS RDS (PostgreSQL)
+```
+
+1. **Build the frontend** with `npm run build` and copy the output into `backend/src/main/resources/public`, so the Spring Boot app serves the UI and the API from one container.
+2. **Containerize the backend** into a Docker image (e.g. `./gradlew bootBuildImage`).
+3. **Push the image to AWS ECR**.
+4. **Create an AWS RDS PostgreSQL instance** for the production database.
+5. **Deploy the image on AWS App Runner**, pointing it at the RDS instance through environment variables (the app reads them in `application.yaml`):
+
+| Variable | Meaning |
+|---|---|
+| `DATABASE_URL` | RDS endpoint |
+| `DATABASE_PORT` | `5432` |
+| `DATABASE_USERNAME` / `DATABASE_PASSWORD` | RDS credentials |
+| `INIT_DB` | `always` on the first launch to create tables and sample data, then `never` |
+
+> This repository is a later rebuild of the project from scratch. To avoid ongoing cloud costs, it is set up to run locally with Docker (below); the same configuration deploys to AWS by setting the environment variables above.
 
 ## How to Run Locally
 
