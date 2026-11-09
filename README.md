@@ -64,7 +64,7 @@ WildcatsDining/
 
 ## Deployment (AWS)
 
-The first version of this app was deployed on AWS with the following architecture:
+The app was deployed on AWS with the following architecture:
 
 ```
 Browser ──► AWS App Runner (Spring Boot container, serves the React build + REST API)
@@ -85,7 +85,7 @@ Browser ──► AWS App Runner (Spring Boot container, serves the React build 
 | `DATABASE_USERNAME` / `DATABASE_PASSWORD` | RDS credentials |
 | `INIT_DB` | `always` on the first launch to create tables and sample data, then `never` |
 
-> This repository is a later rebuild of the project from scratch. To avoid ongoing cloud costs, it is set up to run locally with Docker (below); the same configuration deploys to AWS by setting the environment variables above.
+For local development, run it with Docker (see below).
 
 ## How to Run Locally
 
